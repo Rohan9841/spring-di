@@ -2,11 +2,20 @@ package com.rohan.springdi.controllers;
 
 import org.springframework.stereotype.Controller;
 
+import com.rohan.springdi.services.GreetingService;
+
 @Controller
 public class MyController {
 
-	public String sayHello() {
-		System.out.println("Hello World");
-		return " Hi folks!";
+	private final GreetingService greetingService;
+	
+	public MyController(GreetingService greetingService) {
+		super();
+		this.greetingService = greetingService;
+	}
+
+
+	public String getGreeting() {
+		return greetingService.sayGreeting();
 	}
 }

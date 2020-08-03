@@ -14,10 +14,12 @@ public class SpringDiApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SpringDiApplication.class, args);
+		
+		System.out.println("------------------Prmiary Bean");
 		MyController controller = (MyController) ctx.getBean("myController");
-		System.out.println(controller.sayHello());
+		System.out.println(controller.getGreeting());
+		
 		System.out.println("------------------property");
-
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx
 				.getBean("propertyInjectedController");
 		System.out.println(propertyInjectedController.getGreeting());
