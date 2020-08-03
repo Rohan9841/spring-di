@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import com.rohan.springdi.controllers.ConstructorInjectedController;
+import com.rohan.springdi.controllers.I18nController;
 import com.rohan.springdi.controllers.MyController;
 import com.rohan.springdi.controllers.PropertyInjectedController;
 import com.rohan.springdi.controllers.SetterInjectedController;
@@ -14,6 +15,10 @@ public class SpringDiApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SpringDiApplication.class, args);
+		
+		System.out.println("------------------I18n");
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 		
 		System.out.println("------------------Prmiary Bean");
 		MyController controller = (MyController) ctx.getBean("myController");
